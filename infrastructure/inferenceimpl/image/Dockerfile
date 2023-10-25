@@ -19,7 +19,7 @@ COPY --chown=mindspore:mindspore ./requirements.txt ./requirements.txt
 RUN pip install --upgrade -i https://pypi.mirrors.ustc.edu.cn/simple pip
 RUN pip install --default-timeout=1000 --user -i https://pypi.mirrors.ustc.edu.cn/simple -r requirements.txt
 RUN rm -f ./requirements.txt
-# TODO: what's the purpose
+
 EXPOSE 7860
 
 ENTRYPOINT ["tini", "--"]
