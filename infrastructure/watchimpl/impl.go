@@ -176,16 +176,15 @@ func (w *Watcher) checkCRDStatus(res *v1.CodeServer) (recycled bool, endPoint st
 		case v1.ServerRecycled:
 			if item.Status == corev1.ConditionTrue {
 				recycled = true
-
-				break
 			}
 
 		case v1.ServerReady:
 			if item.Status == corev1.ConditionTrue {
 				endPoint = item.Message["instanceEndpoint"]
-
-				break
 			}
+
+		default:
+			logrus.Warn("unexpected ServerConditionTypes")
 		}
 	}
 
